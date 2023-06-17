@@ -48,7 +48,7 @@
                 </div>
             </div>
         </div>
-        <br /><br />
+        <H1>Tabla de usuarios</H1>
         <table class="table">
             <thead>
                 <tr>
@@ -69,11 +69,32 @@
                     <th>{{ persona.birthday | date : "dd/MM/yyyy" }}</th>
                     <div class="d-flex gap-2">
                         <th>
-                            <a class="btn btn-danger action" (click)="eliminarEstudiante(i)"><i
+                            <a class="btn btn-danger action" (click)="eliminarEstudiante(i, persona)"><i
                                     class="bi bi-trash-fill"></i></a>
                             <a class="btn btn-warning action"><i class="bi bi-pencil-fill"></i></a>
                         </th>
                     </div>
+                </tr>
+            </tbody>
+        </table>
+        <H1>Tabla de eliminados</H1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Cedula</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Fecha de nacimiento</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let persona of listEliminados; let i = index">
+                    <th scope="row">{{ i + 1 }}</th>
+                    <th>{{ persona.ci }}</th>
+                    <th>{{ persona.firstname }}</th>
+                    <th>{{ persona.lastname }}</th>
+                    <th>{{ persona.birthday | date : "dd/MM/yyyy" }}</th>
                 </tr>
             </tbody>
         </table>

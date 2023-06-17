@@ -11,6 +11,7 @@ import { Persona } from 'src/app/modelos/Persona.model';
 })
 export class TablaComponent {
   form!: FormGroup;
+  listEliminados: Persona[] = [];
   listPersona: Persona[] = [{
     id: 1,
     firstname: 'Juan',
@@ -74,7 +75,8 @@ export class TablaComponent {
     }
   }
 
-  eliminarEstudiante(indice: number): void {
+  eliminarEstudiante(indice: number, persona: Persona) {
     this.listPersona.splice(indice, 1);
+    this.listEliminados.push(persona);
   }
 }
